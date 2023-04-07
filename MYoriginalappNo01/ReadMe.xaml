@@ -1,0 +1,43 @@
+﻿<Window x:Class="MYoriginalappNo01.ReadMe"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MYoriginalappNo01"
+        mc:Ignorable="d"
+        Topmost="True"
+         WindowStartupLocation="CenterScreen"
+        Title="本アプリの使い方" Height="400" Width="600">
+    <Window.Resources>
+        <Style x:Key="PressEffectButton" TargetType="{x:Type Button}">
+
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="5,2"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}" CornerRadius="2">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="RenderTransform" >
+                                    <Setter.Value>
+                                        <ScaleTransform ScaleX="0.9" ScaleY="0.9" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Canvas Loaded="Readmee" Margin="0,0,0,-6">
+        <TextBlock HorizontalAlignment="Left" FontSize="60" Height="77" VerticalAlignment="Center" Width="432" Canvas.Left="19" Canvas.Top="13">本アプリの使い方</TextBlock>
+        <TextBox AcceptsReturn="True" TextWrapping="Wrap" Name="Subject" Canvas.Left="19" Canvas.Top="98" Height="219" Width="555" HorizontalAlignment="Left" VerticalAlignment="Center" IsReadOnly="True"></TextBox>
+        <TextBox HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="60" Canvas.Left="10" Canvas.Top="326" Name="hidden" Visibility="Collapsed"></TextBox>
+        <Button Canvas.Left="473" Canvas.Top="23" Height="60" Width="101" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource PressEffectButton}" Click="close">閉じる</Button>
+    </Canvas>
+</Window>

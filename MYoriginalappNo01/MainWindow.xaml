@@ -1,0 +1,49 @@
+﻿<Window x:Class="MYoriginalappNo01.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MYoriginalappNo01"
+        mc:Ignorable="d"
+        Title="出退勤ボタン2.0" Height="400" Width="770"  Background="skyblue">
+    <Window.Resources>
+        <Style x:Key="PressEffectButton" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#a1d8e6"/>
+            <Setter Property="Foreground" Value="#333333"/>
+            <Setter Property="BorderBrush" Value="#4169e1"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="5,2"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}" CornerRadius="2">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="RenderTransform" >
+                                    <Setter.Value>
+                                        <ScaleTransform ScaleX="0.9" ScaleY="0.9" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Canvas Loaded="User" Margin="0,0,0,-6" RenderTransformOrigin="0.328,0.933" >
+        <Button FontSize="52" Content="ジョブカン" Click="Jobcan" x:Name="ジョブカン"  Width="240" Height="240" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource PressEffectButton}" Canvas.Left="507" Canvas.Top="60" Foreground="White"/>
+        <Button FontSize="52" Content ="メール送信"  x:Name="出勤" Click="BeginWork"   Width="240" Height="240" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource PressEffectButton}" Canvas.Left="262" Canvas.Top="60" Foreground="White"/>
+        <Button FontSize="44" Content="レポート送信"  x:Name="退勤" Click="FinishWork" Width="240" Height="240" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource PressEffectButton}" Canvas.Left="17" Canvas.Top="60" Foreground="White"/>
+        <Button x:Name ="終了" FontSize="20" Click="Close" Height="32" Width="87" HorizontalAlignment="Center" VerticalAlignment="Top" Style="{StaticResource PressEffectButton}" Content="終了" Canvas.Left="660" Canvas.Top="15" Foreground="White"/>
+        <TextBlock Height="22" Width="96" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="17" Canvas.Top="19" Background="#6495ed" RenderTransformOrigin="2.178,0.783" Foreground="White">ユーザー名を再設定</TextBlock>
+        <Button x:Name="設定" FontSize="24" Click="SettingWindow" Height="40" Width="240" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource PressEffectButton}" Content="アカウント設定" Canvas.Left="262" Canvas.Top="306" Foreground="White"/>
+        <Button Height="40" Width="240" HorizontalAlignment="Center" VerticalAlignment="Top" x:Name="SeleniumUpdate" Click="Selenium_Update" RenderTransformOrigin="0.576,-0.35" Style="{StaticResource PressEffectButton}" Content="ドライバー更新" Canvas.Left="507" FontSize="24" Canvas.Top="306" Foreground="White"/>
+        <TextBox TextWrapping="Wrap" x:Name="ResettingName" Height="30" Width="158" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.31,0.705" Canvas.Left="118" Canvas.Top="15"/>
+        <Button Height="28" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="設定完了" Click="ResettingUser" RenderTransformOrigin="0.576,-0.35" Style="{StaticResource PressEffectButton}" Content="再設定完了" Canvas.Left="281" Canvas.Top="15" Foreground="White"/>
+        <Button Height="40" Width="240" Click="test" Style="{StaticResource PressEffectButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Content="簡易マニュアル" Canvas.Left="17" RenderTransformOrigin="-0.096,0.48" FontSize="24" Foreground="White" Canvas.Top="306"/>
+    </Canvas>
+</Window>
